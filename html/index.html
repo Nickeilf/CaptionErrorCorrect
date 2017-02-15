@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select File</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+<body>
+    <div class="selector" id="selector">
+        <h2 class="title">字幕纠错</h2>
+        <div class="inner-form">
+            <p class="input-title">选取视频源</p>
+            <input type="text" class="textfield" id="videoText">
+            <input type="button" class="select-button" onclick="document.getElementById('videoSource').click()" value="选取文件">
+            <input class="none" type="file" id="videoSource" onchange="selectFile('video')">
+        </div>
+        <div class="inner-form">
+            <p class="input-title">选取字幕源</p>
+            <input type="text" class="textfield" id="captionText">
+            <input type="button" class="select-button" onclick="document.getElementById('captionSource').click()" value="选取文件">
+            <input class="none" type="file" id="captionSource" onchange="selectFile('caption')">
+        </div>
+        <div class="inner-form">
+            <p class="input-title">选取标定日志</p>
+            <input type="text" class="textfield" id="logText">
+            <input type="button" class="select-button" onclick="document.getElementById('logSource').click()" value="选取文件">
+            <input class="none" type="file" id="logSource" onchange="selectFile('log')">
+        </div>
+        <button class="submit" onclick="submitFile()">确定</button>
+    </div>
+    <div class="checker none" id="checker">
+        <div class="left">
+            <div class="info">
+                <p></p>
+                <p></p>
+                <p></p>
+                <button></button>
+            </div>
+            <video src=""></video>
+        </div>
+        <div class="right">
+           <div class="tableHeader">
+               
+           </div>
+            <table>
+                
+            </table>
+            <button></button>
+        </div>
+    </div>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/caption.js"></script>
+</body>
+</html>
