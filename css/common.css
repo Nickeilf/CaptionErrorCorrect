@@ -1,6 +1,11 @@
 body{
     background-color: #F8F8F8;
 }
+
+input{
+    outline:none;
+}
+
 .selector {
     width: 400px;
     height: 340px;
@@ -40,15 +45,19 @@ body{
 .input-title {
     font-size: 12px;
     color:#939DA5;
+    margin-bottom: 10px;
 }
 
 .textfield {
-    height: 26px;
+    height: 28px;
     border: 1px solid #90CCFB;
     width: 80%;
     padding-left: 10px;
     font-size: 14px;
     color: #577289;
+    transition: .3s;
+    -webkit-transition:.3s;
+    -mozilla-transition:.3s;
 }
 
 .textfield:hover{
@@ -62,6 +71,9 @@ body{
     width: 15%;
     color: white;
     cursor: pointer;
+    transition: .3s;
+    -webkit-transition:.3s;
+    -mozilla-transition:.3s;
 }
 
 .select-button:hover {
@@ -69,7 +81,7 @@ body{
 }
 
 .inner-form {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     margin-top: 20px;
 }
 
@@ -84,9 +96,82 @@ body{
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
+    transition: .3s;
+    -webkit-transition:.3s;
+    -mozilla-transition:.3s;
 }
 
 .submit:hover{
     background-color: #00CDBA;
     cursor: pointer;
+}
+
+.left {
+    float: left;
+    width: 800px;
+    border-right: 1px solid #DBDBDB;
+}
+
+.right {
+    float: right;
+    width: 299px;
+}
+
+.info {
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 30px;
+    border-bottom: 1px solid #DBDBDB;
+}
+
+.info-item {
+    display: inline;
+    line-height: 30px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #3778B2;
+    margin-right: 20px;
+}
+
+.switch-button {
+    float: right;
+    height: 20px;
+    width: 50px;
+    border: none;
+    background-color: #4FABF3;
+    color: white;
+    margin-top: 5px;
+    cursor: pointer;
+    transition: .3s;
+    -webkit-transition:.3s;
+    -mozilla-transition:.3s;
+}
+
+.switch-button:hover{
+    background-color: #1F87D8;
+}
+
+.target-video {
+    width: 800px;
+}
+
+.tableHeader {
+    width: 299px;
+    height: 30px;
+    border-bottom: 1px solid #DBDBDB;
+}
+
+.header {
+    margin-left: 10px;
+    display: inline;
+    line-height: 30px;
+    font-size: 13px;
+    font-weight: 500;
+    color:#767F86;
+}
+
+.save-button {
+    height: 40px;
+    border-top: 1px solid #DBDBDB;
+    border: none;
 }

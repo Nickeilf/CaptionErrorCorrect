@@ -3,52 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <title>Select File</title>
-    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="../css/cssreset.css">
+    <link rel="stylesheet" href="../css/common.css">
 </head>
 <body>
-    <div class="selector" id="selector">
+    <div class="selector none" id="selector">
         <h2 class="title">字幕纠错</h2>
         <div class="inner-form">
             <p class="input-title">选取视频源</p>
             <input type="text" class="textfield" id="videoText">
             <input type="button" class="select-button" onclick="document.getElementById('videoSource').click()" value="选取文件">
-            <input class="none" type="file" id="videoSource" onchange="selectFile('video')">
+            <input class="none file" type="file" id="videoSource" onchange="selectFile('video')">
         </div>
         <div class="inner-form">
             <p class="input-title">选取字幕源</p>
             <input type="text" class="textfield" id="captionText">
             <input type="button" class="select-button" onclick="document.getElementById('captionSource').click()" value="选取文件">
-            <input class="none" type="file" id="captionSource" onchange="selectFile('caption')">
+            <input class="none file" type="file" id="captionSource" onchange="selectFile('caption')">
         </div>
         <div class="inner-form">
             <p class="input-title">选取标定日志</p>
             <input type="text" class="textfield" id="logText">
             <input type="button" class="select-button" onclick="document.getElementById('logSource').click()" value="选取文件">
-            <input class="none" type="file" id="logSource" onchange="selectFile('log')">
+            <input class="none file" type="file" id="logSource" onchange="selectFile('log')">
         </div>
         <button class="submit" onclick="submitFile()">确定</button>
     </div>
-    <div class="checker none" id="checker">
+    <div class="checker" id="checker">
         <div class="left">
             <div class="info">
-                <p></p>
-                <p></p>
-                <p></p>
-                <button></button>
+                <p class="info-item">字幕.mp4</p>
+                <p class="info-item">英文.vtt</p>
+                <p class="info-item">标定日志.txt</p>
+                <input type="button" class="switch-button" value="更换"></input>
             </div>
-            <video src=""></video>
+            <video width="800px" id="targetVideo" controls>
+                <source src="../a.mp4">
+                <track id="caption" label="chi" kind="captions" src="" default="chi"></track>
+            </video>
         </div>
         <div class="right">
            <div class="tableHeader">
-               
+                <p class="header" style="margin-right:5px;">时间</p>
+                <p class="header" style="margin-right:90px;">错误内容</p>
+                <p class="header">人数</p>
            </div>
             <table>
                 
             </table>
-            <button></button>
+            <input type="button" class="save-button" value="更换"></input>
         </div>
+        <div style="clear:both"></div>
     </div>
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/caption.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/caption.js"></script>
 </body>
 </html>

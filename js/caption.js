@@ -1,7 +1,8 @@
 function selectFile(key){
     var text = key+"Text";
     var choser = key+"Source";
-    document.getElementById(text).value = document.getElementById(choser).value;
+    var file = document.getElementById(choser).files[0].name;
+    document.getElementById(text).value = file;
 }
 
 function submitFile(){
@@ -13,7 +14,7 @@ function submitFile(){
     if(log==""||caption==""||log==""){
         alert("未选择完成");
     }else{
-    $("#selector").fadeOut(300);
-    setTimeout(function(){$("#checker").fadeIn(300)},300);
+        $("#selector").fadeOut(300);
+        setTimeout(function(){$("#checker").fadeIn(300)},300);
     }
 }
