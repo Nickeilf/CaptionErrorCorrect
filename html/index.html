@@ -32,13 +32,12 @@
     <div class="checker none" id="checker">
         <div class="left">
             <div class="info">
-                <p class="info-item">字幕.mp4</p>
-                <p class="info-item">英文.vtt</p>
-                <p class="info-item">标定日志.txt</p>
+                <p class="info-item" id="videoTitle">字幕.mp4</p>
+                <p class="info-item" id="captionTitle">英文.vtt</p>
+                <p class="info-item" id="logTitle">标定日志.txt</p>
                 <input type="button" class="switch-button" value="更换"></input>
             </div>
-            <video width="800px" controls>
-                <source id="targetVideo" src="">
+            <video width="800px" id="targetVideo" controls>
                 <track id="caption" label="chi" kind="captions" src="" default="chi"></track>
             </video>
         </div>
