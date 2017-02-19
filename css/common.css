@@ -152,7 +152,7 @@ input{
 }
 
 
-.tableHeader {
+.table-header {
     width: 299px;
     height: 30px;
     border-bottom: 1px solid #DBDBDB;
@@ -168,7 +168,54 @@ input{
 }
 
 .save-button {
+    border: none;
     height: 40px;
     border-top: 1px solid #DBDBDB;
-    border: none;
+    background-color: white;
+    width: 100%;
+    cursor: pointer;
+    color: #767F86;
+    transition: .3s;
+    -webkit-transition:.3s;
+    -mozilla-transition:.3s;
+}
+
+.save-button:hover{
+    background-color: #E6FFF2;
+    color: #768681;
+}
+
+.log-row {
+    font-size: 12px;
+    color:#767F86;
+    line-height: 25px;
+    transition: .2s;
+    -webkit-transition:.2s;
+    -mozilla-transition:.2s;
+}
+
+.log-row:hover{
+    background-color: #E6F4FF;
+}
+
+#log-table {
+    width:100%;
+    text-align:left;
+    margin-top: 4px;
+}
+
+.table-body {
+    height: 365px;
+    overflow: scroll;
+}
+
+.log-time {
+    width: 46px;
+    padding-left: 10px;
+}
+
+.log-content {
+    width: 163px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

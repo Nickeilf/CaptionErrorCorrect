@@ -1,7 +1,6 @@
-/*
-全局变量
-*/
+//global var
 window.URL = window.URL || window.webkitURL;
+var ANIMATION_TIME = 200;
 
 var videoFileURL;
 var captionFileURL;
@@ -24,10 +23,15 @@ function submitFile(){
     if(videoFileURL==""||captionFileURL==""||logFileURL==""){
         alert("未选择完成");
     }else{
-        $("#selector").fadeOut(300);
-        checkerInit();
-        setTimeout(function(){$("#checker").fadeIn(300)},300);
+        switchDisplay("#selector","#checker");
     }
+}
+
+//using class/ID to switch display of this two obj
+function switchDisplay(outObj,inObj){
+    $(outObj).fadeOut(ANIMATION_TIME);
+    checkerInit();
+    setTimeout(function(){$(inObj).fadeIn(ANIMATION_TIME)},ANIMATION_TIME);        
 }
 
 //init checker
@@ -43,15 +47,12 @@ function checkerInit(){
 
 //reset button function
 function reset() {
-    $("#checker").fadeIn(300);
-    setTimeout(function(){$("#selector").fadeOut(300)},300);
+    switchDisplay("#checker","#selector");
     cleanVar();
 }
 
 
-/*
-        重设全局变量
-*/
+//reset global var
 function cleanVar(){
     
 }
