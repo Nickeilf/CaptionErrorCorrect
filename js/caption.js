@@ -43,6 +43,8 @@ function checkerInit(){
     document.getElementById("videoTitle").innerHTML = document.getElementById("videoText").value;
     document.getElementById("captionTitle").innerHTML = document.getElementById("captionText").value;
     document.getElementById("logTitle").innerHTML = document.getElementById("logText").value;
+    readCaption();
+    readFile();
 }
 
 //reset button function
