@@ -2,11 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Select File</title>
+    <title>Caption Check</title>
     <link rel="stylesheet" href="../css/cssreset.css">
     <link rel="stylesheet" href="../css/common.css">
 </head>
 <body>
+    <div id="editModal" class="none">
+        <div class="modal-block">
+            <input type="button" class="modal-close" value="X" onclick="closeModal()">
+            <input type="text" class="textfield" id="editTextfield">
+            <input type="button" class="select-button" onclick="modalSave()" value="确认">
+        </div>
+    </div>
+   
     <div class="selector" id="selector">
         <h2 class="title">字幕纠错</h2>
         <div class="inner-form">
@@ -49,14 +57,14 @@
            </div>
            <div class="table-body">
                 <table id="log-table">
-                       <tr class="log-row none" id="row-exmp" onmouseover="rowHover(this)" onmouseout="rowOut(this)">
-                        <td class="log-time"><span class="time">0:02</span><input type="button" class="jump none" value="跳转"></td>
+                    <tr class="log-row none" id="row-exmp" onmouseover="rowHover(this)" onmouseout="rowOut(this)">
+                        <td class="log-time"><span class="time">0:02</span><input type="button" class="jump none" value="跳转" onclick="jumpTo(this)"></td>
                         <td class="log-content">这是一条很大的海豚</td>
-                        <td class="log-ratio"><span class="ratio">67.7%</span><input type="button" class="edit none" value="修改"></td>
+                        <td class="log-ratio"><span class="ratio">67.7%</span><input type="button" class="edit none" value="修改" onclick="editModal(this)"></td>
                     </tr>
                 </table>
             </div>
-            <input type="button" class="save-button" value="保存所有更改" onclick="saveModal()">
+            <input type="button" class="save-button" value="保存所有更改" onclick="saveAll()">
         </div>
         <div style="clear:both"></div>
     </div>
