@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/common.css">
 </head>
 <body>
-    <div class="selector none" id="selector">
+    <div class="selector" id="selector">
         <h2 class="title">字幕纠错</h2>
         <div class="inner-form">
             <p class="input-title">选取视频源</p>
@@ -29,7 +29,7 @@
         </div>
         <button class="submit" onclick="submitFile()">确定</button>
     </div>
-    <div class="checker" id="checker">
+    <div class="checker none" id="checker">
         <div class="left">
             <div class="info">
                 <p class="info-item" id="videoTitle">字幕.mp4</p>
@@ -49,91 +49,10 @@
            </div>
            <div class="table-body">
                 <table id="log-table">
-                    <tr class="log-row">
-                        <td class="log-time"><span class="time">0:02</span><input type="button"></td>
+                       <tr class="log-row none" id="row-exmp" onmouseover="rowHover(this)" onmouseout="rowOut(this)">
+                        <td class="log-time"><span class="time">0:02</span><input type="button" class="jump none" value="跳转"></td>
                         <td class="log-content">这是一条很大的海豚</td>
-                        <td class="log-ratio"><span class="ratio">67.7%</span><input type="button"></td>
-                    </tr>
-                    <tr class="log-row">
-                        <td class="log-time"><span class="time">0:02</span><input type="button"></td>
-                        <td class="log-content">这是一条很大的海豚</td>
-                        <td class="log-ratio"><span class="ratio">67.7%</span><input type="button"></td>
-                    </tr>
-                    <tr class="log-row">
-                        <td class="log-time"><span class="time">0:02</span><input type="button"></td>
-                        <td class="log-content">这是一条很大的海豚</td>
-                        <td class="log-ratio"><span class="ratio">67.7%</span><input type="button"></td>
-                    </tr>
-                    <tr class="log-row">
-                        <td class="log-time"><span class="time">0:02</span><input type="button"></td>
-                        <td class="log-content">这是一条很大的海豚</td>
-                        <td class="log-ratio"><span class="ratio">67.7%</span><input type="button"></td>
-                    </tr>
-                    <tr class="log-row">
-                        <td class="log-time"><span class="time">0:02</span><input type="button"></td>
-                        <td class="log-content">这是一条很大的海豚</td>
-                        <td class="log-ratio"><span class="ratio">67.7%</span><input type="button"></td>
-                    </tr>
-                    <tr class="log-row">
-                        <td class="log-time"><span class="time">0:02</span><input type="button"></td>
-                        <td class="log-content">这是一条很大的海豚</td>
-                        <td class="log-ratio"><span class="ratio">67.7%</span><input type="button"></td>
-                    </tr>
-                    <tr class="log-row">
-                        <td class="log-time"><span class="time">0:02</span><input type="button"></td>
-                        <td class="log-content">这是一条很大的海豚</td>
-                        <td class="log-ratio"><span class="ratio">67.7%</span><input type="button"></td>
-                    </tr>
-                    <tr class="log-row">
-                        <td class="log-time"><span class="time">0:02</span><input type="button"></td>
-                        <td class="log-content">这是一条很大的海豚</td>
-                        <td class="log-ratio"><span class="ratio">67.7%</span><input type="button"></td>
-                    </tr>
-                    <tr class="log-row">
-                        <td class="log-time"><span class="time">0:02</span><input type="button"></td>
-                        <td class="log-content">这是一条很大的海豚</td>
-                        <td class="log-ratio"><span class="ratio">67.7%</span><input type="button"></td>
-                    </tr>
-                    <tr class="log-row">
-                        <td class="log-time"><span class="time">0:02</span><input type="button"></td>
-                        <td class="log-content">这是一条很大的海豚</td>
-                        <td class="log-ratio"><span class="ratio">67.7%</span><input type="button"></td>
-                    </tr>
-                    <tr class="log-row">
-                        <td class="log-time"><span class="time">0:02</span><input type="button"></td>
-                        <td class="log-content">这是一条很大的海豚</td>
-                        <td class="log-ratio"><span class="ratio">67.7%</span><input type="button"></td>
-                    </tr>
-                    <tr class="log-row">
-                        <td class="log-time"><span class="time">0:02</span><input type="button"></td>
-                        <td class="log-content">这是一条很大的海豚</td>
-                        <td class="log-ratio"><span class="ratio">67.7%</span><input type="button"></td>
-                    </tr>
-                    <tr class="log-row">
-                        <td class="log-time"><span class="time">0:02</span><input type="button"></td>
-                        <td class="log-content">这是一条很大的海豚</td>
-                        <td class="log-ratio"><span class="ratio">67.7%</span><input type="button"></td>
-                    </tr>
-                    <tr class="log-row">
-                        <td class="log-time"><span class="time">0:02</span><input type="button"></td>
-                        <td class="log-content">这是一条很大的海豚</td>
-                        <td class="log-ratio"><span class="ratio">67.7%</span><input type="button"></td>
-                    </tr>
-                    
-                    <tr class="log-row">
-                        <td class="log-time"><span class="time">0:02</span><input type="button"></td>
-                        <td class="log-content">这是一条很大的海豚</td>
-                        <td class="log-ratio"><span class="ratio">67.7%</span><input type="button"></td>
-                    </tr>
-                    <tr class="log-row">
-                        <td class="log-time"><span class="time">0:02</span><input type="button"></td>
-                        <td class="log-content">这是一条很大的海豚</td>
-                        <td class="log-ratio"><span class="ratio">67.7%</span><input type="button"></td>
-                    </tr>
-                    <tr class="log-row">
-                        <td class="log-time"><span class="time">0:02</span><input type="button"></td>
-                        <td class="log-content">这是一条很大的海豚</td>
-                        <td class="log-ratio"><span class="ratio">67.7%</span><input type="button"></td>
+                        <td class="log-ratio"><span class="ratio">67.7%</span><input type="button" class="edit none" value="修改"></td>
                     </tr>
                 </table>
             </div>
@@ -141,6 +60,7 @@
         </div>
         <div style="clear:both"></div>
     </div>
+    <script src="../js/readFile.js"></script>
     <script src="../js/jquery.min.js"></script>
     <script src="../js/caption.js"></script>
 </body>

@@ -30,12 +30,15 @@ function submitFile(){
 //using class/ID to switch display of this two obj
 function switchDisplay(outObj,inObj){
     $(outObj).fadeOut(ANIMATION_TIME);
+    if(outObj!="#checker"){
     checkerInit();
+}
     setTimeout(function(){$(inObj).fadeIn(ANIMATION_TIME)},ANIMATION_TIME);        
 }
 
 //init checker
 function checkerInit(){
+    //info init
     var videoBlock = document.getElementById("targetVideo");
     videoBlock.src=videoFileURL;
     var imgBlock = document.getElementById("caption");
@@ -45,6 +48,29 @@ function checkerInit(){
     document.getElementById("logTitle").innerHTML = document.getElementById("logText").value;
     readCaption();
     readFile();
+    var array = getLog();
+    for(var i=0;i<array.length;i++){
+        var newRow = document.createElement("tr");
+        newRow.innerHTML = $("#row-exmp").html();
+        newRow.onmouseover = rowHover(this);
+        newRow.onmouseout = rowOut(this);
+        $("#log-table").append(newRow);
+//        array[i][0]
+    }
+}
+
+
+//row hover effect
+function rowHover(obj){
+    $(obj).find(".time").css("display","none");
+    $(obj).find(".edit").css("display","inline");
+    $(obj).find(".jump").css("display","inline");
+}
+
+function rowOut(obj){
+    $(obj).find(".time").css("display","inline");
+    $(obj).find(".edit").css("display","none");   
+    $(obj).find(".jump").css("display","none");
 }
 
 //reset button function

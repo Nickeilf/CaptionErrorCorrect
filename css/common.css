@@ -205,8 +205,9 @@ input{
 }
 
 .table-body {
-    height: 365px;
+    height: 415px;
     overflow: scroll;
+    position:relative;
 }
 
 .log-time {
@@ -218,4 +219,26 @@ input{
     width: 163px;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.jump,.edit{
+    border: none;
+    height: 26px;;
+    width: 36px;
+    background-color: #90CDFC;
+    color: white;
+    font-size: 12px;
+    cursor:pointer;
+    transition: .3s;
+    -webkit-transition:.3s;
+    -mozilla-transition:.3s;
+}
+
+.jump:hover,.edit:hover{
+    background-color:#4293D2;
+}
+
+.edit{
+    position: absolute;
+    right: 0;
 }

@@ -11,7 +11,6 @@ function getLog(){
     for(var i =0;i<log.length;i++){
         var subArray=[];
 
-
         var logInfo=log[i].split("|");
         subArray.push(logInfo[1]);
         var content=findCaptionContent(logInfo[2]);
@@ -19,14 +18,13 @@ function getLog(){
         subArray.push(content[1]);
         subArray.push(logInfo[3]);
 
-
         array.push(subArray);
     }
 
     var result=document.getElementById("result");
     result.innerHTML+=array;
 
-
+    return array;
 }
 
 function findCaptionContent(location){
