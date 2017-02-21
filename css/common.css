@@ -295,3 +295,10 @@ input{
 .modal-close:hover{
     background-color: #E8F4FF;
 }
+
+.blur{
+    -webkit-filter: blur(5px);  
+       -moz-filter: blur(5px);  
+        -ms-filter: blur(5px);      
+            filter: blur(5px);  
+}

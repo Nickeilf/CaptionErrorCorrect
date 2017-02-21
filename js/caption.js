@@ -108,6 +108,7 @@ function jumpTo(obj){
 
 function closeModal(){
     $("#editModal").fadeOut(ANIMATION_TIME);
+    document.getElementById("filter").className = "";
     $("#editTextfield").val("");
 }
 
@@ -125,6 +126,7 @@ function editModal(obj){
         document.getElementById("editTextfield").value = caption;
     }
     
+    document.getElementById("filter").className = "blur";
     $("#editModal").fadeIn(ANIMATION_TIME);
     nowEdit = obj.parentNode.parentNode.id;
 }

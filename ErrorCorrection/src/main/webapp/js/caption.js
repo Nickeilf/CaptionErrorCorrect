@@ -20,6 +20,27 @@ function submitFile(){
     videoFileURL = window.URL.createObjectURL(document.getElementById('videoSource').files[0]);
     captionFileURL = window.URL.createObjectURL(document.getElementById('captionSource').files[0]);
     logFileURL = window.URL.createObjectURL(document.getElementById('logSource').files[0]);
+    var caption = document.getElementById('captionSource').value;
+    var log = document.getElementById('logSource').value;
+
+    alert(0);
+    $('form').ajaxSubmit({
+        type:"post",
+        url:"upload",
+        async: false,
+        data: {
+            "caption":caption,
+            "log":log
+        },
+        success:function(result){
+            alert(result);
+        },
+        error:function () {
+            alert("wrong");
+        }
+    });
+    alert(1);
+
     
     if(videoFileURL==""||captionFileURL==""||logFileURL==""){
         alert("未选择完成");
