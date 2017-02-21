@@ -18,7 +18,7 @@
 
 <div class="selector" id="selector">
     <h2 class="title">字幕纠错</h2>
-    <form action="/upload.action" method="post" enctype="multipart/form-data"
+    <form id="upload" action="/upload" method="post" enctype="multipart/form-data"
           onsubmit="return false;">
         <div class="inner-form">
             <p class="input-title">选取视频源</p>
@@ -80,6 +80,7 @@
 </div>
 <script src="js/readFile.js"></script>
 <script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/ajaxfileupload.js"></script>
 <script src="http://malsup.github.io/jquery.form.js"></script>
 <script src="js/caption.js"></script>
 
