@@ -22,11 +22,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="ErrorCorrection" />
+        <module name="nick" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ErrorCorrection" target="1.8" />
+      <module name="nick" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

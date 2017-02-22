@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ErrorCorrection.iml" filepath="$PROJECT_DIR$/ErrorCorrection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nick.iml" filepath="$PROJECT_DIR$/nick.iml" />
     </modules>
   </component>
 </project>
