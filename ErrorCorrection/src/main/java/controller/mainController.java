@@ -87,6 +87,12 @@ public class mainController {
         int x=list.length;
         int y = list[0].length;
 
+        for(int i=0;i<x;i++){
+            for(int j =0;j<y;j++){
+                System.out.println(list[i][j]);
+            }
+        }
+
         return list;
     }
 }
