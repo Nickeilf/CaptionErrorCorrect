@@ -39,11 +39,7 @@
             <input type="text" class="textfield" id="logText">
             <input name="caption" type="button" class="select-button" onclick="document.getElementById('logSource').click()"
                    value="选取文件">
-<<<<<<< Updated upstream
             <input class="none file" type="file" name="log" id="logSource" onchange="selectFile('log')">
-=======
-            <input name="log" class="none file" type="file" id="logSource" onchange="selectFile('log')">
->>>>>>> Stashed changes
         </div>
         <button class="submit" onclick="submitFile()">确定</button>
     </form>

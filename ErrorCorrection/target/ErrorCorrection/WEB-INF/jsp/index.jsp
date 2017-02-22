@@ -37,9 +37,13 @@
         <div class="inner-form">
             <p class="input-title">选取标定日志</p>
             <input type="text" class="textfield" id="logText">
-            <input type="button" class="select-button" onclick="document.getElementById('logSource').click()"
+            <input name="caption" type="button" class="select-button" onclick="document.getElementById('logSource').click()"
                    value="选取文件">
+<<<<<<< Updated upstream
             <input class="none file" type="file" name="log" id="logSource" onchange="selectFile('log')">
+=======
+            <input name="log" class="none file" type="file" id="logSource" onchange="selectFile('log')">
+>>>>>>> Stashed changes
         </div>
         <button class="submit" onclick="submitFile()">确定</button>
     </form>
@@ -75,12 +79,14 @@
             </table>
         </div>
         <input type="button" class="save-button" value="保存所有更改" onclick="saveAll()">
+        <a class="none" id="saveAs" href="" download=""></a>
     </div>
     <div style="clear:both"></div>
 </div>
+
+
 <script src="js/readFile.js"></script>
 <script src="js/jquery-1.10.2.min.js"></script>
-<script src="js/ajaxfileupload.js"></script>
 <script src="http://malsup.github.io/jquery.form.js"></script>
 <script src="js/caption.js"></script>
 
