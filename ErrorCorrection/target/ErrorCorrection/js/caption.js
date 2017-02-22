@@ -30,7 +30,8 @@ function submitFile(){
         async: false,
         data: {
             "caption":caption,
-            
+            "log":log
+
         },
         success:function(result){
             alert(result);

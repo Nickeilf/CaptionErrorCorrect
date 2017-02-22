@@ -15,7 +15,9 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import processor.Transfer;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by dzkan on 2016/3/8.
@@ -33,34 +35,58 @@ public class mainController {
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     @ResponseBody
-    public String[][] upload(@RequestParam("caption")MultipartFile caption){
-
-        System.out.println(caption==null);
+    public String[][] upload(@RequestParam("caption")MultipartFile caption, @RequestParam("log")MultipartFile log, HttpServletRequest request){
 
 
-//        CommonsMultipartFile cf = (CommonsMultipartFile)caption;
-//        //这个myfile是MultipartFile的
-//        DiskFileItem fi = (DiskFileItem) cf.getFileItem();
-//        File capFile = fi.getStoreLocation();
-//
-//        CommonsMultipartFile cf2 = (CommonsMultipartFile)log;
-//        //这个myfile是MultipartFile的
-//        DiskFileItem fi2 = (DiskFileItem) cf2.getFileItem();
-//        File logFile = fi2.getStoreLocation();
-//
-//        Transfer t = new Transfer();
-//        String[][] list = t.getErrorList(capFile,logFile);
-//
-//
-//        int x=list.length;
-//        int y = list[0].length;
-//
-//        for(int i=0;i<x;i++){
-//            for(int j =0;j<y;j++){
-//                System.out.println(list[i][j]);
-//            }
-//        }
+        String uploadUrl=request.getSession().getServletContext().getRealPath("/");
 
-        return null;
+        String filename = caption.getOriginalFilename();
+        String filename2 = log.getOriginalFilename();
+
+
+
+        File dir = new File(uploadUrl);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+
+        System.out.println("文件上传到: " + uploadUrl + filename);
+
+        File capFile = new File(uploadUrl + filename);
+        File logFile = new File(uploadUrl+filename2);
+
+        if (!capFile.exists()) {
+            try {
+                capFile.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (!logFile.exists()) {
+            try {
+                logFile.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        try {
+            caption.transferTo(capFile);
+            log.transferTo(logFile);
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Transfer t = new Transfer();
+        String[][] list = t.getErrorList(capFile,logFile);
+
+
+        int x=list.length;
+        int y = list[0].length;
+
+        return list;
     }
 }
