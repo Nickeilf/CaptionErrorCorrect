@@ -32,14 +32,14 @@
             <input type="text" class="textfield" id="captionText">
             <input type="button" class="select-button" onclick="document.getElementById('captionSource').click()"
                    value="选取文件">
-            <input class="none file" type="file" name="caption" id="captionSource" onchange="selectFile('caption')">
+            <input class="none file" type="file" accept=".vtt" name="caption" id="captionSource" onchange="selectFile('caption')">
         </div>
         <div class="inner-form">
             <p class="input-title">选取标定日志</p>
             <input type="text" class="textfield" id="logText">
             <input name="caption" type="button" class="select-button" onclick="document.getElementById('logSource').click()"
                    value="选取文件">
-            <input class="none file" type="file" name="log" id="logSource" onchange="selectFile('log')">
+            <input class="none file" type="file" accept=".txt" name="log" id="logSource" onchange="selectFile('log')">
         </div>
         <button class="submit" onclick="submitFile()">确定</button>
     </form>
@@ -83,7 +83,7 @@
 
 <script src="js/readFile.js"></script>
 <script src="js/jquery-1.10.2.min.js"></script>
-<script src="http://malsup.github.io/jquery.form.js"></script>
+<script src="js/jquery.form.js"></script>
 <script src="js/caption.js"></script>
 
 </body>

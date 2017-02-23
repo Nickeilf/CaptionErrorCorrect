@@ -34,6 +34,8 @@ public class Transfer {
             String log1=logs.get(i);
             String[] logItems=log1.split("\\|");
 
+
+            //time
             list[i][0]=logItems[1];
 
             String location = logItems[2];
@@ -56,6 +58,7 @@ public class Transfer {
 
 
             list[i][3]=logItems[3];
+            //location
             list[i][4]=logItems[2];
         }
         return list;

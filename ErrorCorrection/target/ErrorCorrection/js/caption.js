@@ -6,6 +6,7 @@ var videoFileURL;
 var captionFileURL;
 var logFileURL;
 var nowEdit;
+var array;
 
 //select button function
 function selectFile(key){
@@ -23,7 +24,6 @@ function submitFile(){
     var caption = $("#captionSource").val();
     var log = $("#logSource").val();
 
-    alert(0);
     $('form').ajaxSubmit({
         type:"post",
         url:"upload",
@@ -31,17 +31,14 @@ function submitFile(){
         data: {
             "caption":caption,
             "log":log
-
         },
         success:function(result){
-            alert(result);
+            array = result;
         },
         error:function () {
             alert("wrong");
         }
     });
-    alert(1);
-
 
     if(videoFileURL==""||captionFileURL==""||logFileURL==""){
         alert("未选择完成");
@@ -71,7 +68,7 @@ function checkerInit(){
     document.getElementById("captionTitle").innerHTML = document.getElementById("captionText").value;
     document.getElementById("logTitle").innerHTML = document.getElementById("logText").value;
 
-    var array = [["0.02","我是一条大海豚","大海豚","75%"],["100.02","我是一条大海豚","我是","75%"],["120.02","我是一条大海豚","海豚","75%"],["60.02","aaabbaa","bb","75%"]];
+    // var array = [["0.02","我是一条大海豚","大海豚","75%"],["100.02","我是一条大海豚","我是","75%"],["120.02","我是一条大海豚","海豚","75%"],["60.02","aaabbaa","bb","75%"]];
     // readFile();
     // readCaption();
     //
@@ -136,30 +133,54 @@ function closeModal(){
 }
 
 function editModal(obj){
-    var caption = obj.parentNode.parentNode.getElementsByClassName("log-content")[0].innerHTML;
-    if(caption.indexOf("</span>") != -1){
-
-        var plainText = caption.split("<span class=\"mark\">");
-        var secondText = plainText[1].split("</span>");
-        plainText[1] = secondText[0];
-        plainText[2] = secondText[1];
-
-        document.getElementById("editTextfield").value = plainText[0]+plainText[1]+plainText[2];
-    }else{
-        document.getElementById("editTextfield").value = caption;
-    }
-
-    $("#editModal").fadeIn(ANIMATION_TIME);
     nowEdit = obj.parentNode.parentNode.id;
+    var caption = obj.parentNode.parentNode.getElementsByClassName("log-content")[0].innerHTML;
+    document.getElementById("editTextfield").value = array[nowEdit][2];
+    $("#editModal").fadeIn(ANIMATION_TIME);
 }
 
 function modalSave(){
-    document.getElementById(nowEdit).getElementsByClassName("log-content")[0].innerHTML = document.getElementById("editTextfield").value;
+    var nowContent = document.getElementById(nowEdit).getElementsByClassName("log-content")[0];
+    var remain = nowContent.innerHTML.split(array[nowEdit][2]);
+    var textField = document.getElementById("editTextfield").value;
+    nowContent.innerHTML = remain[0]+ textField + remain[1];
+    var temp = array[nowEdit][1].split(array[nowEdit][2]);
+    array[nowEdit][1] = temp[0] + textField + temp[1];
+    array[nowEdit][2] = textField;
     closeModal();
 }
 
 function saveAll(){
+    var fileName = $("#captionTitle").html();
 
+    var newArray = [];
+    for(var i=0;i<array.length;i++){
+        for(var j=0;j<array[0].length;j++){
+            newArray.push(array[i][j]);
+        }
+    }
+
+    // newArray = JSON.stringify(newArray);
+
+
+    //ajax
+    $.ajax({
+       type:"post",
+        url:"save",
+        async:false,
+        data:{
+            "array":newArray,
+            "fileName":fileName
+        },
+        success:function (result) {
+            alert(result);
+            document.getElementById("saveAs").href=result;
+        },
+        error:function () {
+            alert("保存失败");
+        }
+    });
+    document.getElementById("saveAs").click();
 }
 
 //reset button function
@@ -172,5 +193,8 @@ function reset() {
 
 //reset global var
 function cleanVar(){
-
+    document.getElementById("caption").src="";
+    var first = $("#row-exmp");
+    $("#log-table").html("");
+    $("#log-table").append(first);
 }
