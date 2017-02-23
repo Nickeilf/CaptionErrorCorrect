@@ -28,7 +28,7 @@ public class Transfer {
 
         int line = logs.size();
 
-        String[][] list=new String[line][4];
+        String[][] list=new String[line][5];
 
         for(int i =0;i<line;i++){
             String log1=logs.get(i);
@@ -56,6 +56,7 @@ public class Transfer {
 
 
             list[i][3]=logItems[3];
+            list[i][4]=logItems[2];
         }
         return list;
     }

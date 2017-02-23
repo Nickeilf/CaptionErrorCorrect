@@ -24,6 +24,7 @@ import java.io.IOException;
  */
 @Controller
 public class mainController {
+    File caption=null;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     @ResponseBody
@@ -74,6 +75,7 @@ public class mainController {
         try {
             caption.transferTo(capFile);
             log.transferTo(logFile);
+            this.caption=capFile;
         } catch (IllegalStateException e) {
             e.printStackTrace();
         } catch (IOException e) {
